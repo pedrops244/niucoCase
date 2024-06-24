@@ -43,8 +43,6 @@ Este projeto consiste em uma aplicação Node.js que implementa um servidor de A
    API_URL=http://localhost:3000
    ```
 
-   Substitua `http://localhost:3000` pelo URL da sua API, se aplicável.
-
 ## Execução
 
 Para iniciar o servidor:
@@ -53,7 +51,7 @@ Para iniciar o servidor:
 npm start
 ```
 
-O servidor estará disponível em `http://localhost:3000`.
+O servidor estará disponível em `http://localhost:3001`.
 
 ## Testes
 
