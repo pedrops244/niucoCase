@@ -24,14 +24,20 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests
-        run: npm test
-
       - name: Start JSON Server
         run: |
           cd config
-          json-server --watch db.json
-        background: true
+          json-server --watch db.json &
+          echo $! > json-server.pid
+          wait
 
       - name: Wait for JSON Server to Start
         run: sleep 10
+
+      - name: Run tests
+        run: npm test
+
+      - name: Stop JSON Server
+        if: always()
+        run: |
+          kill $(cat config/json-server.pid) || true
