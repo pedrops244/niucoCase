@@ -55,16 +55,10 @@ O servidor estará disponível em `http://localhost:3001`.
 
 ## Testes
 
-Para executar os testes unitários:
+Para executar os testes:
 
 ```
 npm test
-```
-
-Para executar os testes de integração:
-
-```
-npm run test:integration
 ```
 
 ## Estrutura de Arquivos
