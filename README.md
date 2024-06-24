@@ -10,7 +10,7 @@ Supertest (para testes de integração)
 dotenv (para carregar variáveis de ambiente)
 Funcionalidades
 Obfuscação de e-mail: E-mails são ofuscados dependendo do domínio do usuário.
-Formatação de data: A data da última atividade dos usuários é convertida para o formato ISO-8601.
+Formatação de data: A data da última atividade dos usuários é convertida para o formato ISO-8601 no UTC de Brasília.
 Verificação de status de pagamento e atividade: Os usuários têm seus status de pagamento e atividade verificados para determinar se estão ativos e pagantes.
 Pré-requisitos
 Node.js instalado na máquina local
