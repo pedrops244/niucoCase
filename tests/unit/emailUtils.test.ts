@@ -1,4 +1,3 @@
-// tests/unit/emailUtils.test.ts
 import { obfuscateEmail } from '../../src/utils/emailUtils';
 
 test('should obfuscate email correctly', () => {

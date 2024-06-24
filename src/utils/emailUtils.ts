@@ -1,4 +1,3 @@
-// src/utils/emailUtils.ts
 export const obfuscateEmail = (email: string): string => {
   const [alias, domain] = email.split('@');
   if (domain === 'niuco.com.br') return email;

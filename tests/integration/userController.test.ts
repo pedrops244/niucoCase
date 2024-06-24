@@ -1,5 +1,3 @@
-// tests/integration/userController.test.ts
-
 import request from 'supertest';
 import express, { Express } from 'express';
 import { fetchAndTransformUsers } from '../../src/services/userService';
