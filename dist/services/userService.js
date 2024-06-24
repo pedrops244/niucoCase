@@ -17,15 +17,24 @@ const axios_1 = __importDefault(require("axios"));
 const dateUtils_1 = require("../utils/dateUtils");
 const emailUtils_1 = require("../utils/emailUtils");
 const fetchAndTransformUsers = () => __awaiter(void 0, void 0, void 0, function* () {
-    const response = yield axios_1.default.get(`${process.env.API_URL}/users`);
-    return response.data.map((user) => ({
-        id: user.id,
-        name: user.name,
-        email: (0, emailUtils_1.obfuscateEmail)(user.email),
-        lastActivity: (0, dateUtils_1.formatUnixEpochToISO)(user.last_activity),
-        isPaying: user.status === 'enabled' &&
-            (user.role === 'editor' || user.role === 'admin'),
-        isActive: user.status === 'enabled',
-    }));
+    try {
+        const response = yield axios_1.default.get(`${process.env.API_URL}/users`);
+        if (!response.data || !Array.isArray(response.data)) {
+            throw new Error('Invalid response format from API');
+        }
+        return response.data.map((user) => ({
+            id: user.id,
+            name: user.name,
+            email: (0, emailUtils_1.obfuscateEmail)(user.email),
+            lastActivity: (0, dateUtils_1.formatUnixEpochToISO)(user.last_activity),
+            isPaying: user.status === 'enabled' &&
+                (user.role === 'editor' || user.role === 'admin'),
+            isActive: user.status === 'enabled',
+        }));
+    }
+    catch (error) {
+        console.error('Error fetching users:', error);
+        throw error;
+    }
 });
 exports.fetchAndTransformUsers = fetchAndTransformUsers;
