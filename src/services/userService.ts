@@ -1,24 +1,8 @@
 import axios from 'axios';
 import { formatUnixEpochToISO } from '../utils/dateUtils';
 import { obfuscateEmail } from '../utils/emailUtils';
-
-interface User {
-  id: string;
-  name: string;
-  email: string;
-  last_activity: number;
-  role: string;
-  status: string;
-}
-
-interface TransformedUser {
-  id: string;
-  name: string;
-  email: string;
-  lastActivity: string;
-  isPaying: boolean;
-  isActive: boolean;
-}
+import { User } from '../models/userModels';
+import { TransformedUser } from '../models/userModels';
 
 export const fetchAndTransformUsers = async (): Promise<TransformedUser[]> => {
   try {

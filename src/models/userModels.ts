@@ -1,4 +1,4 @@
-export interface User {
+export interface TransformedUser {
   id: string;
   name: string;
   email: string;
@@ -7,7 +7,7 @@ export interface User {
   isActive: boolean;
 }
 
-export interface ApiResponse {
+export interface User {
   id: string;
   name: string;
   email: string;
